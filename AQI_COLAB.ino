@@ -4,6 +4,8 @@
 #include "DFRobot_AirQualitySensor.h"
 #include <Wire.h>
 
+
+
 #define I2C_ADDRESS 0x19
 DFRobot_AirQualitySensor particle(&Wire, I2C_ADDRESS);
 
@@ -20,6 +22,9 @@ const char* serverPath = "http://thingsboard.cloud/api/v1/"; // ThingsBoard serv
 
 WiFiClientSecure wifiClient;  // Secure client for HTTPS
 WiFiClient wifiClientThingsBoard;  // Client for ThingsBoard
+
+
+
 
 void setup() {
     Serial.begin(115200);
@@ -43,6 +48,9 @@ void setup() {
     // Trust all certificates (insecure, but sometimes necessary for ESP8266)
     wifiClient.setInsecure();
 }
+
+
+
 
 // Function to send data to Google Sheets
 void sendToGoogleSheets(uint16_t pm1_0, uint16_t pm2_5, uint16_t pm10) {
@@ -98,6 +106,9 @@ void sendToThingsBoard(uint16_t pm1_0, uint16_t pm2_5, uint16_t pm10) {
         Serial.println("WiFi not connected for ThingsBoard!");
     }
 }
+
+
+
 
 
 void loop() {
